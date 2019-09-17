@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ProjetoAdminSite.Models.Usuario>
+
+@{ 
+    ViewData["Title"] = "Listagem de Usuários";
+}
+
+<div class="row">
+    <div class="col s8">
+        <h5>Listagem de Usuários</h5>
+    </div>
+
+    <div class="col s4 right-align">
+        <br />
+        <a class="waves-effect waves-light btn" asp-action="Cadastro" asp-controller="Usuario">
+            <i class="material-icons left icones">add_circle_outline</i>Cadastrar Usuário
+        </a>
+
+        <a class="waves-effect waves-light btn blue darken-4" asp-action="GerarCSV" asp-controller="Usuario">
+            <i class="material-icons left icones">archive</i>Gerar CSV
+        </a>
+    </div>
+</div>
+
+<table class="table highlight responsive-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Senha)
+                </td>
+                <td>
+                    @if (item.Ativo == true)
+                    {
+                        <span>Sim</span>
+                    }
+                    else
+                    {
+                        <span>Não</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.UsuarioId" class="btn-floating btn-small waves-effect waves-light orange darken-4">
+                        <i class="material-icons">edit</i>
+                    </a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
