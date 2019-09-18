@@ -81,7 +81,7 @@ namespace ProjetoAdminSite.Controllers
                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                     await HttpContext.SignInAsync(principal);
 
-                    return RedirectToAction("Index", "Usuario");
+                    return RedirectToAction("Index", "Blog");
                 }
                 else
                 {

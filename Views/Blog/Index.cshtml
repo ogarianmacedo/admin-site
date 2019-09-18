@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ProjetoAdminSite.Models.Blog>
+
+@{
+    ViewData["Title"] = "Listagem de Blogs";
+}
+
+<div class="row">
+    <div class="col s8">
+        <h5>Listagem de Blogs</h5>
+    </div>
+
+    <div class="col s4 right-align">
+        <br />
+        <a class="waves-effect waves-light btn" asp-action="Cadastro" asp-controller="Blog">
+            <i class="material-icons left icones">add_circle_outline</i>Novo Blog
+        </a>
+    </div>
+</div>
+
+<table class="table highlight responsive-table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Data de publicação</th>
+            <th>Autor</th>
+            <th>Ativo</th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DtPublicacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Nome)
+                </td>
+                <td>
+                    @if (item.Ativo == true)
+                    {
+                        <span>Sim</span>
+                    }
+                    else
+                    {
+                        <span>Não</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.BlogId" class="btn-floating btn-small waves-effect waves-light orange darken-4">
+                        <i class="material-icons">edit</i>
+                    </a>
+
+                    <a asp-action="Visualizar" asp-route-id="@item.BlogId" class="btn-floating btn-small waves-effect waves-light blue darken-4">
+                        <i class="material-icons">visibility</i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

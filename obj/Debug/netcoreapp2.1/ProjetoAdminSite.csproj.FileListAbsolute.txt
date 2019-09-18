@@ -28,3 +28,6 @@ C:\xampp\htdocs\ProjetoAdminSite\ProjetoAdminSite\obj\Debug\netcoreapp2.1\Razor\
 C:\xampp\htdocs\ProjetoAdminSite\ProjetoAdminSite\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Cadastro.g.cshtml.cs
 C:\xampp\htdocs\ProjetoAdminSite\ProjetoAdminSite\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Login.g.cshtml.cs
 C:\xampp\htdocs\ProjetoAdminSite\ProjetoAdminSite\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Editar.g.cshtml.cs
+C:\xampp\htdocs\ProjetoAdminSite\ProjetoAdminSite\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Index.g.cshtml.cs
+C:\xampp\htdocs\ProjetoAdminSite\ProjetoAdminSite\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Cadastro.g.cshtml.cs
+C:\xampp\htdocs\ProjetoAdminSite\ProjetoAdminSite\obj\Debug\netcoreapp2.1\Razor\Views\Blog\Editar.g.cshtml.cs

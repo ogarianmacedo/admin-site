@@ -16,7 +16,6 @@ namespace ProjetoAdminSite.Models
         [Required(ErrorMessage = "Campo obrigatório.")]
         public string Texto { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório.")]
         public string Imagem { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório.")]

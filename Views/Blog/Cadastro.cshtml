@@ -1,0 +1,82 @@
+﻿@model ProjetoAdminSite.Models.Blog
+
+@{
+    ViewData["Title"] = "Novo Blog";
+}
+
+<div class="row">
+    <div class="col s10">
+        <h5>Novo Blog</h5>
+    </div>
+
+    <div class="col s2 right-align">
+        <br />
+        <a class="waves-effect waves-light btn" asp-action="Index" asp-controller="Blog">
+            <i class="material-icons left icones">reply</i>Voltar
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s6">
+        <form asp-action="CadastrarBlog" asp-controller="Blog" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="file-field input-field">
+                <div class="btn btn-small">
+                    <span>Imagem</span>
+                    <input type="file" asp-for="Imagem" name="Imagem" onchange="apresentaIagem(this);">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Faça o upload da imagem">
+                </div>
+            </div>
+
+            <div class="input-field col s12">
+                <input asp-for="Titulo" id="Titulo" type="text" class="validate">
+                <label for="Titulo">Título</label>
+                <span asp-validation-for="Titulo" class="red-text darken-3"></span>
+            </div>
+
+            <div class="input-field col s12">
+                <textarea asp-for="Texto" id="Texto" class="materialize-textarea" data-length="400"></textarea>
+                <label for="Texto">Texto</label>
+                <span asp-validation-for="Texto" class="red-text darken-3"></span>
+            </div>
+
+            <div class="right-align">
+                <input type="submit" value="Cadastrar" class="btn btn-small green darken-1" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col s5 offset-s1">
+        <img id="imagem" src="#" alt="Imagem" style="max-width: 100%; border-radius: 20px;"/>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $("#imagem").hide();
+
+        $(document).ready(function() {
+            $('input#input_text, textarea#Texto').characterCounter();
+        });
+
+        function apresentaIagem(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                $("#imagem").show();
+
+                reader.onload = function (e) {
+                     $('#imagem').attr('src', e.target.result);
+                }
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+}
