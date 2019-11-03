@@ -40,7 +40,7 @@ namespace ProjetoAdminSite
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(opcoes =>
                 {
-                    opcoes.LoginPath = "/Usuarios/Login";
+                    opcoes.LoginPath = "/Usuario/Login";
                 });
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
