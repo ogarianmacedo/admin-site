@@ -17,7 +17,6 @@ namespace ProjetoAdminSite.Models
         [EmailAddress(ErrorMessage = "E-mail inválido.")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório.")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 

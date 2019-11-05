@@ -126,5 +126,11 @@ namespace ProjetoAdminSite.Controllers
             return View(blog);
         }
 
+        public async Task<IActionResult> Visualizar(int id)
+        {
+            var blog = await _contexto.Blogs.Include(b => b.Usuario).FirstOrDefaultAsync(b => b.BlogId == id);
+            return View(blog);
+        }
+
     }
 }

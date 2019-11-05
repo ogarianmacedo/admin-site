@@ -20,18 +20,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <nav class="cyan darken-4">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo logo-menu-superior">Admin</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li><a asp-action="Sair" asp-controller="Usuario">Olá @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNome")</a></li>
-                    <li><a asp-action="Sair" asp-controller="Usuario">Sair</a></li>
-                }
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav class="cyan darken-4">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo logo-menu-superior">Admin</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-action="Sair" asp-controller="Usuario">Olá @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNome")</a></li>
+                        <li><a asp-action="Sair" asp-controller="Usuario">Sair</a></li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <div class="row">
         @if (User.Identity.IsAuthenticated)
@@ -62,7 +64,7 @@
             </div>
         }
 
-        <div class="col s10">
+        <div class="body-content col s10">
             @RenderBody()
         </div>
     </div>

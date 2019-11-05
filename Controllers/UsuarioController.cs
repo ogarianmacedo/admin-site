@@ -118,6 +118,7 @@ namespace ProjetoAdminSite.Controllers
             }
 
             var usuario = await _contexto.Usuarios.FindAsync(id);
+            TempData["UsuarioPass"] = usuario.Senha;
             return View(usuario);
         }
 
@@ -128,14 +129,21 @@ namespace ProjetoAdminSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var usuarioBanco = _contexto.Usuarios.Any(u => u.UsuarioId == usuario.UsuarioId);
-                if (usuarioBanco)
+                var usuarioExiste = _contexto.Usuarios.Any(u => u.UsuarioId == usuario.UsuarioId);
+                if (usuarioExiste)
                 {
                     try
                     {
-                        var senha = RetornarMD5(usuario.Senha);
-                        usuario.Senha = senha;
-
+                        if(usuario.Senha != null)
+                        {
+                            var senha = RetornarMD5(usuario.Senha);
+                            usuario.Senha = senha;
+                        }
+                        else
+                        {
+                            usuario.Senha = TempData["UsuarioPass"].ToString();
+                        }
+                     
                         _contexto.Update(usuario);
                         await _contexto.SaveChangesAsync();
                     }
