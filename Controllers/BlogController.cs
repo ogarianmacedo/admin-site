@@ -88,29 +88,27 @@ namespace ProjetoAdminSite.Controllers
                 {
                     try
                     {
-                        //upload da imagem
-                        var linkUpload = Path.Combine(_hostingEnvironment.WebRootPath, "Uploads");
                         if (imagem != null)
                         {
+                            //upload da imagem
+                            var linkUpload = Path.Combine(_hostingEnvironment.WebRootPath, "Uploads");
+
                             Random rdm = new Random();
                             var nomeImagem = rdm.Next(0, 5000) + "_" + imagem.FileName;
 
                             using (var fileStream = new FileStream(Path.Combine(linkUpload, nomeImagem), FileMode.Create))
                             {
                                 await imagem.CopyToAsync(fileStream);
-
-                                if (String.IsNullOrEmpty(blog.Imagem))
-                                {
-                                    blog.Imagem = TempData["Imagem"].ToString();
-                                }
-                                else
-                                {
-                                    blog.Imagem = "~/Uploads/" + nomeImagem;
-                                }
-
+                                blog.Imagem = "~/Uploads/" + nomeImagem;
                                 blog.UsuarioId = int.Parse(HttpContext.Session.GetInt32("UsuarioId").ToString());
                             }
                         }
+                        else
+                        {
+                            blog.Imagem = TempData["Imagem"].ToString();
+                            blog.UsuarioId = int.Parse(HttpContext.Session.GetInt32("UsuarioId").ToString());
+                        }
+                        blog.DtPublicacao = DateTime.Now;
 
                         _contexto.Update(blog);
                         await _contexto.SaveChangesAsync();
@@ -127,5 +125,6 @@ namespace ProjetoAdminSite.Controllers
 
             return View(blog);
         }
+
     }
 }

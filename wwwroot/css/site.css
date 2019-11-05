@@ -73,3 +73,7 @@ header, main, footer {
 .icone-menu-lateral {
     margin: 0 6px 0 0 !important;
 }
+
+.alert-danger {
+    color: darkred;
+}

@@ -49,11 +49,13 @@ namespace ProjetoAdminSite.Controllers
             {
                 var retornoMd5 = RetornarMD5(login.Senha);
 
-                if (_contexto.Usuarios.Any(u => u.Email == login.Email && u.Senha == retornoMd5 && u.Ativo == true))
+                var usuarioBanco = _contexto.Usuarios.FirstOrDefault(u => u.Email == login.Email && u.Senha == retornoMd5 && u.Ativo == true);
+                
+                if (usuarioBanco != null)
                 {
-                    int id = _contexto.Usuarios.Where(u => u.Email == login.Email && u.Senha == retornoMd5).Select(u => u.UsuarioId).Single();
+                    HttpContext.Session.SetInt32("UsuarioId", usuarioBanco.UsuarioId);
+                    HttpContext.Session.SetString("UsuarioNome", usuarioBanco.Nome);
 
-                    HttpContext.Session.SetInt32("UsuarioId", id);
                     var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Email, login.Email)
@@ -195,12 +197,12 @@ namespace ProjetoAdminSite.Controllers
         /**
          * Método não está sendo utilizado para verificaçao
          */
-        public bool ComparaMD5(string senhabanco, string Senha_MD5)
+        public bool ComparaMD5(string senhabanco, string senhamd5)
         {
             using (MD5 md5Hash = MD5.Create())
             {
                 var senha = RetornarMD5(senhabanco);
-                if (VerificarHash(md5Hash, Senha_MD5, senha))
+                if (VerificarHash(md5Hash, senhamd5, senha))
                 {
                     return true;
                 }
