@@ -76,6 +76,7 @@ namespace ProjetoAdminSite.Controllers
             return View("Login");
         }
 
+        [Authorize]
         public async Task<IActionResult> Sair()
         {
             await HttpContext.SignOutAsync();
@@ -161,14 +162,18 @@ namespace ProjetoAdminSite.Controllers
 
         public IActionResult GerarCSV()
         {
-            var usuarios = _contexto.Usuarios.ToList();
+            var usuarios = _contexto.Usuarios.Include(u => u.Blogs).ToList();
 
             StringBuilder arquivo = new StringBuilder();
 
-            arquivo.AppendLine("Nome;Email;Ativo");
+            arquivo.AppendLine("Nome;Email;Ativo;Blog Postado;Data Publicação;Status do Blog");
             foreach(var item in usuarios)
             {
-                arquivo.AppendLine(item.Nome + ";" + item.Email + ";" + item.Ativo);
+                foreach(var blog in item.Blogs)
+                {
+                    var ativo = blog.Ativo == true ? "Ativo" : "Inativo";
+                    arquivo.AppendLine(item.Nome + ";" + item.Email + ";" + item.Ativo + ";" + blog.Titulo + ";" + blog.DtPublicacao + ";" + ativo);
+                }
             }
 
             return File(Encoding.ASCII.GetBytes(arquivo.ToString()), "text/csv", "dados-usuario.csv");

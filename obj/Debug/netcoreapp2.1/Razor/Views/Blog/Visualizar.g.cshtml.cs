@@ -78,7 +78,7 @@ using ProjetoAdminSite.Models;
             WriteLiteral("</h5>\r\n    </div>\r\n\r\n    <div class=\"col s2 right-align\">\r\n        <br />\r\n        ");
             EndContext();
             BeginContext(255, 162, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f28d7bc748c46bfb67d6f85cd7eb9d3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3d8b31f6bba940f5adcc5b8cdb0109bf", async() => {
                 BeginContext(336, 77, true);
                 WriteLiteral("\r\n            <i class=\"material-icons left icones\">reply</i>Voltar\r\n        ");
                 EndContext();
@@ -153,7 +153,7 @@ WriteAttributeValue("", 594, Url.Content(Model.Imagem), 594, 26, false);
             WriteLiteral("\r\n                </p>\r\n            </div>\r\n            <div class=\"card-action\">\r\n                ");
             EndContext();
             BeginContext(1134, 217, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "056003692b3441e2a5c1c3c9db00730c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f70325077aed4179b40cd59b481bfb55", async() => {
                 BeginContext(1273, 74, true);
                 WriteLiteral("\r\n                    <i class=\"material-icons\">edit</i>\r\n                ");
                 EndContext();

@@ -69,7 +69,7 @@ using ProjetoAdminSite.Models;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <div class=\"col s8\">\r\n        <h5>Listagem de Blogs</h5>\r\n    </div>\r\n\r\n    <div class=\"col s4 right-align\">\r\n        <br />\r\n        ");
             EndContext();
             BeginContext(264, 181, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b73628dfcee54c7882fd64daa2dd1130", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9442997302ce4ab79e640bc826c9c981", async() => {
                 BeginContext(348, 93, true);
                 WriteLiteral("\r\n            <i class=\"material-icons left icones\">add_circle_outline</i>Novo Blog\r\n        ");
                 EndContext();
@@ -177,7 +177,7 @@ using ProjetoAdminSite.Models;
             WriteLiteral("                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1515, 209, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f190ca01455400f8bcde29a67d6ccc5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8981ca781b64d0fbefacdca20da065a", async() => {
                 BeginContext(1638, 82, true);
                 WriteLiteral("\r\n                        <i class=\"material-icons\">edit</i>\r\n                    ");
                 EndContext();
@@ -213,7 +213,7 @@ using ProjetoAdminSite.Models;
             WriteLiteral("\r\n\r\n                    ");
             EndContext();
             BeginContext(1748, 217, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aa8c5c1cedb44fe798195e555a8c58fd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fcfb1a5dffec481b974d2ff6e2a39472", async() => {
                 BeginContext(1873, 88, true);
                 WriteLiteral("\r\n                        <i class=\"material-icons\">visibility</i>\r\n                    ");
                 EndContext();
