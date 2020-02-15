@@ -1,2 +1,2 @@
 # admin-site
-Área administrativa p/ site com ASP.NET Core 2.1
+Projeto Livre - área administrativa p/ site com ASP.NET Core 2.1
