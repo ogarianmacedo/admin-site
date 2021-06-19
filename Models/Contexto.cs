@@ -15,14 +15,11 @@ namespace ProjetoAdminSite.Models
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Blog> Blogs { get; set; }
-        public DbSet<InscricaoExterna> InscricoesExterna { get; set; }
 
-        //Classes Mapeadas
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsuarioMap());
             modelBuilder.ApplyConfiguration(new BlogMap());
-            modelBuilder.ApplyConfiguration(new InscricaoExternaMap());
         }
     }
 }

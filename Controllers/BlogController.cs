@@ -41,8 +41,7 @@ namespace ProjetoAdminSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                //upload da imagem
-                var linkUpload = Path.Combine(_hostingEnvironment.WebRootPath, "Uploads");
+                var linkUpload = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
                 if(imagem != null)
                 {
                     Random rdm = new Random();
@@ -51,7 +50,7 @@ namespace ProjetoAdminSite.Controllers
                     using (var fileStream = new FileStream(Path.Combine(linkUpload, nomeImagem), FileMode.Create))
                     {
                         await imagem.CopyToAsync(fileStream);
-                        blog.Imagem = "~/Uploads/" + nomeImagem;
+                        blog.Imagem = "~/uploads/" + nomeImagem;
                         blog.UsuarioId = int.Parse(HttpContext.Session.GetInt32("UsuarioId").ToString());
                     }
                 }
@@ -91,7 +90,7 @@ namespace ProjetoAdminSite.Controllers
                         if (imagem != null)
                         {
                             //upload da imagem
-                            var linkUpload = Path.Combine(_hostingEnvironment.WebRootPath, "Uploads");
+                            var linkUpload = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
 
                             Random rdm = new Random();
                             var nomeImagem = rdm.Next(0, 5000) + "_" + imagem.FileName;
@@ -99,7 +98,7 @@ namespace ProjetoAdminSite.Controllers
                             using (var fileStream = new FileStream(Path.Combine(linkUpload, nomeImagem), FileMode.Create))
                             {
                                 await imagem.CopyToAsync(fileStream);
-                                blog.Imagem = "~/Uploads/" + nomeImagem;
+                                blog.Imagem = "~/uploads/" + nomeImagem;
                                 blog.UsuarioId = int.Parse(HttpContext.Session.GetInt32("UsuarioId").ToString());
                             }
                         }
@@ -120,7 +119,6 @@ namespace ProjetoAdminSite.Controllers
                         throw;
                     }
                 }
-
             }
 
             return View(blog);
@@ -131,6 +129,5 @@ namespace ProjetoAdminSite.Controllers
             var blog = await _contexto.Blogs.Include(b => b.Usuario).FirstOrDefaultAsync(b => b.BlogId == id);
             return View(blog);
         }
-
     }
 }

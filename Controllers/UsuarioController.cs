@@ -166,22 +166,17 @@ namespace ProjetoAdminSite.Controllers
 
             StringBuilder arquivo = new StringBuilder();
 
-            arquivo.AppendLine("Nome;Email;Ativo;Blog Postado;Data Publicação;Status do Blog");
+            arquivo.AppendLine("Nome;Email;Status;");
+
             foreach(var item in usuarios)
             {
-                foreach(var blog in item.Blogs)
-                {
-                    var ativo = blog.Ativo == true ? "Ativo" : "Inativo";
-                    arquivo.AppendLine(item.Nome + ";" + item.Email + ";" + item.Ativo + ";" + blog.Titulo + ";" + blog.DtPublicacao + ";" + ativo);
-                }
+                var usuarioAtivo = item.Ativo == true ? "Ativo" : "Inativo";
+                arquivo.AppendLine(item.Nome + ";" + item.Email + ";" + usuarioAtivo + ";");
             }
 
             return File(Encoding.ASCII.GetBytes(arquivo.ToString()), "text/csv", "dados-usuario.csv");
         }
              
-        /**
-         * Gera MD5
-         */
         public string RetornarMD5(string Senha)
         {
             using (MD5 md5Hash = MD5.Create())
@@ -190,9 +185,6 @@ namespace ProjetoAdminSite.Controllers
             }
         }
 
-        /**
-         * Gera Hash
-         */
         private string RetonarHash(MD5 md5Hash, string input)
         {
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
@@ -207,9 +199,6 @@ namespace ProjetoAdminSite.Controllers
             return sBuilder.ToString();
         }
 
-        /**
-         * Método não está sendo utilizado para verificaçao
-         */
         public bool ComparaMD5(string senhabanco, string senhamd5)
         {
             using (MD5 md5Hash = MD5.Create())
@@ -226,9 +215,6 @@ namespace ProjetoAdminSite.Controllers
             }
         }
 
-        /**
-        * Método não está sendo utilizado para verificaçao
-        */
         private bool VerificarHash(MD5 md5Hash, string input, string hash)
         {
             StringComparer compara = StringComparer.OrdinalIgnoreCase;

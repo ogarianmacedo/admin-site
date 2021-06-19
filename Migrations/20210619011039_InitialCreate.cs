@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjetoAdminSite.Migrations
 {
-    public partial class BancoInicial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,7 @@ namespace ProjetoAdminSite.Migrations
                     Email = table.Column<string>(nullable: false),
                     Telefone = table.Column<string>(nullable: false),
                     Mensagem = table.Column<string>(nullable: false),
-                    DtInscricao = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 9, 17, 9, 4, 55, 322, DateTimeKind.Local))
+                    DtInscricao = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2021, 6, 18, 22, 10, 39, 849, DateTimeKind.Local))
                 },
                 constraints: table =>
                 {
@@ -50,7 +50,7 @@ namespace ProjetoAdminSite.Migrations
                     Titulo = table.Column<string>(nullable: false),
                     Texto = table.Column<string>(nullable: false),
                     Imagem = table.Column<string>(nullable: false),
-                    DtPublicacao = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 9, 17, 9, 4, 55, 307, DateTimeKind.Local)),
+                    DtPublicacao = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2021, 6, 18, 22, 10, 39, 846, DateTimeKind.Local)),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
                     UsuarioId = table.Column<int>(nullable: false)
                 },

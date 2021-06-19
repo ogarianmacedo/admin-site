@@ -10,14 +10,14 @@ using ProjetoAdminSite.Models;
 namespace ProjetoAdminSite.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20190917120456_BancoInicial")]
-    partial class BancoInicial
+    [Migration("20210619011039_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -33,7 +33,7 @@ namespace ProjetoAdminSite.Migrations
 
                     b.Property<DateTime>("DtPublicacao")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 9, 17, 9, 4, 55, 307, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 6, 18, 22, 10, 39, 846, DateTimeKind.Local));
 
                     b.Property<string>("Imagem")
                         .IsRequired();
@@ -64,7 +64,7 @@ namespace ProjetoAdminSite.Migrations
 
                     b.Property<DateTime>("DtInscricao")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 9, 17, 9, 4, 55, 322, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 6, 18, 22, 10, 39, 849, DateTimeKind.Local));
 
                     b.Property<string>("Email")
                         .IsRequired();
